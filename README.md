@@ -188,10 +188,6 @@ appointment-system/
     └── e2e/                # Playwright tests
 ```
 
-## Learning Outcomes
-
-This project was built as a hands-on learning project. See [LEARNING.md](LEARNING.md) for detailed notes on every concept covered — from layered architecture and Zod validation to JWT auth, n8n webhooks, and voice agents.
-
 ## License
 
 MIT — see [LICENSE](LICENSE).
