@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:16
+    container_name: appointment_db
+    restart: unless-stopped
+    # Dev-only credentials — in production, use environment variables / secrets manager
+    environment:
+      POSTGRES_USER: appointment_user
+      POSTGRES_PASSWORD: appointment_pass
+      POSTGRES_DB: appointment_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  n8n:
+    image: n8nio/n8n
+    container_name: appointment_n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_SECURE_COOKIE=false
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  postgres_data:
+  n8n_data:
